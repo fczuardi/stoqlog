@@ -1,3 +1,22 @@
+# October 3
+- openssl custom recompile
+  - SSL v3
+    - http://vaughanhilts.me/blog/2017/02/06/openssl-with-sslv3-on-arch-linux-for-dot-net-core.html
+    - install `customizepkg-git` from AUR
+    - edit `/etc/customizepkg.d/openssl`
+    - edit `/etc/customizepkg.d/openssl-1.0`
+    - add the following lines:
+```
+replace#global#no-ssl3-method#zlib
+replace#global#no-ssl3#zlib
+```
+    - run `yaourt -S openssl` and if the pgp signature fails...
+    - `gpg --recv-keys D9C4D26D0E604491`
+- Jenkins
+  - signup
+  - request accesss to private repos
+
+
 # October 2
 
 - Gerrit (pull requests + code review)
@@ -6,7 +25,9 @@
     - signup SSO (Google)
     - ask to be added on chat
   - test with ssh
-    - `ssh gerrit.async.com.br -p 2948`
+    - `ssh gerrit.async.com.br -p 294i8`
+  - https://wiki.stoq.com.br/index.php/Getting_started
+  - https://www.mediawiki.org/wiki/Gerrit/Tutorial#Installing_git-review
 
 - Wiki
   - https://wiki.stoq.com.br/
@@ -23,6 +44,9 @@
   - `repo forall -c git submodule init`
   - `repo forall -c git submodule update`
 
+- Jenkins
+  - signup, request via chat
+
 - Env vars
   - source stoq/utils/env.sh
     - (bash)
@@ -32,6 +56,8 @@
 - stoq
   - Dependencies
     - swig
+    - webkitgtk
+      -  https://github.com/archlinuxcn/repo/blob/master/README.md
     - storm fork
       - https://launchpad.net/~stoq-maintainers/+archive/ubuntu/unstable/+sourcefiles/storm/0.20.0.100-2~py3-1xenial/storm_0.20.0.100-2~py3-1xenial.tar.gz
       - `tar -xvf storm_0.20.0.100-2~py3-1xenial.tar.gz`
@@ -62,6 +88,17 @@
 - stoq-server
   - locale pt_BR
     - uncomment line on /etc/locale.gen and then run locale-gen
+  - SSL v3
+    - http://vaughanhilts.me/blog/2017/02/06/openssl-with-sslv3-on-arch-linux-for-dot-net-core.html
+    - install `customizepkg-git` from AUR
+    - edit `/etc/customizepkg.d/openssl`
+    - add the following lines:
+```
+replace#global#no-ssl3-method#zlib
+replace#global#no-ssl3#zlib
+```
+    - run `yaourt -S openssl` and if the pgp signature fails...
+    - `gpg --recv-keys D9C4D26D0E604491`
 
 # October 1
 
